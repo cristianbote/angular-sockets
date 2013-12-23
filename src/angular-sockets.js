@@ -48,7 +48,7 @@
 			   * @param <Object> data The config _data_ object, which holds the server ip, handlers and if there's a scope
 			   */
 			this.setup = function(data) {
-				_data.handlers = data.handlers || _data.handlers;
+				_data.handlers = utils.objectCopy(_data.handlers, data.handlers);
 				_data.scope = data.scope || _data.scope;
 				_data.server = data.server || _data.server;
 
@@ -152,5 +152,15 @@
 				}
 			};
 		});
+
+	var utils = {
+		objectCopy: function (a, b) {
+			for (var i in b) {
+				a[i] = b[i];
+			}
+
+			return a;
+		}
+	}
 
 }(window, window.angular));
