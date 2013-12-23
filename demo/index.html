@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>AngularJS sockets chat</title>
+	<!-- What's the purpose of fancy meta tags? -->
+</head>
+
+<body ng-controller="AppController">
+
+	<!-- App bones -->
+	<div class="wrapper">
+		<p>Simple chat app, powered by sockets</p>
+
+		<form ng-submit="sendMessage()">
+			<input type="text" name="msg" />
+			<input type="submit" value="Send" />
+		</form>
+
+		<div class="conversations">
+			<div ng-repeat="m in messages">
+				{{m.ip}}: {{m.data}}
+			</div>
+		</div>
+	</div>
+
+	<!-- Libs -->
+	<script type="text/javascript" src="lib/angular/angular.js"></script>
+	<script type="text/javascript" src="../src/angular-sockets.min.js"></script>
+
+	<!-- Out app main file -->
+	<script type="text/javascript" src="src/js/app.js"></script>
+</body>
+</html>
